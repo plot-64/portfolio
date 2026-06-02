@@ -1,0 +1,97 @@
+/*==================
+        全体
+====================*/
+
+/* ボックスの計算 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 余白削除 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 写真は親要素からはみ出ない */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* いろんなスタイルとか装飾はいらねー */
+/* リストの点（・）を消す */
+ul,
+ol {
+  list-style: none;
+}
+
+/* リンクの下線を消し、文字色を親要素に合わせる */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ボタンのデフォルトの枠線や背景を消す */
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font: inherit; /* 親要素のフォントを継承 */
+}
+
+/*==================
+        ヒーロー
+====================*/
+/*=========================
+        ワークス   .works
+==========================*/
+
+/* 構造 */
+.works .works-container {
+  display: flex;
+}
+.works nav {
+  width: 100px;
+}
+.works .works-grid {
+  flex: 1;
+
+}
+
+/* ナビデザイン */
+.works nav {
+  display: flex;
+  flex-direction: column;
+}
+
+/* works-gridデザイン */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+/* item設定 */
+.works-item {
+  border: 1px solid;
+  gap: 20px;
+}
+.works-item h3 {
+  margin: 10px 0 10px 10px;
+}
+.works-item .textbox {
+  margin: 5px 5px 5px 5px;
+}
+
+/*==================
+        スキル
+====================*/
+/*==================
+        全体
+====================*/
