@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>]
+  <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
 </head>
 <body>
   <!----------------
@@ -18,13 +19,14 @@
   ----------------->
   <section class="works">
     <h2>制作実績</h2>
+    <p>これまで手掛けた制作物や現在取り組んでいるプロジェクトです。</p>
     <div class="works-container">
 
 
-      <!-- ナビエリア -->
+      <!-- ナビエリア --> 
       <nav>
         <ul>
-          <li><button id="js-button-all" type="button">ALL</button></li>
+          <li><button class="is-active" id="js-button-all" type="button">ALL</button></li>
           <li><button id="js-button-code" type="button">CODE</button></li>
           <li><button id="js-button-media" type="button">MEDIA</button></li>
         </ul>
@@ -32,6 +34,8 @@
   
   
       <!--ワークスアイテムエリア-->
+      <!-- 将来的に一個変更したらすべての構造が変わるようにしてぇ 多分出来そう -->
+       <!-- アーティクルの連続じゃなくて構造1つにそれぞれの情報代入方式 -->
       <div class="works-grid">
   
         <article class="works-item js-code js-media">
@@ -39,16 +43,34 @@
           <img src="images/works/城保全.png" alt="">
           <div class="textbox">
             <p class="works-info">遺産の保全団体のデモサイトです。テーマに合わせてシックなデザインで制作。サイト内で使用している写真も自分で撮影編集を行いました。</p>
-            <h4 class="tech">使用技術</h4>
-            <ul class="tech-list">
-              <li>HTML CSS JavaScript PhP</li>
-              <li>WordPress</li>
-              <li>技術1</li>
-            </ul>
+            <div class="tech-list">
+              <h4 class="tech">使用技術、機材</h4>
+              <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>PHP</li>
+                <li>WordPress</li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal-box">
+            <!-- タイトルがくる -->
             <ul class="links">
               <li><a href="https://moodle.work/~kamisaka/castle-homepage/">WEBサイト</a></li>
               <li><a href="https://github.com/plot-64/castle-homepage">GITHUB</a></li>
             </ul>
+            <!-- 写真が来る -->
+             <div class="modal-info">
+              <p>遺産保護団体のデモサイトを作成しました。サイドバーを大きく動かすデザインや,場所によく合うようシックなデザインを目指してデザインしました。また素材の撮影編集まですべて行いました。</p>
+
+             </div>
+            
+
+
+
+
+
           </div>
         </article>
 
@@ -108,7 +130,7 @@
           <h3 class="works-title">ナッツショップ</h3>
           <img src="images/works/ナッツショップ.png" alt="">
           <div class="textbox">
-            <p class="works-info">SQLを使用して販売や在庫,注文処理などが出来るサイトを作成しました。</p>
+            <p class="works-info">SQLを使用して販売や在庫,注文処理などが出来るデモサイトを作成しました。</p>
             <h4 class="tech">使用技術</h4>
             <ul class="tech-list">
               <li>MYSQL</li>
@@ -120,7 +142,7 @@
           </div>
         </article>
 
-        <article class="works-item js-code">
+        <article class="works-item js-media">
           <h3 class="works-title">成人式前撮り依頼</h3>
           <img src="images/works/ナッツショップ.png" alt="">
           <div class="textbox">
@@ -136,11 +158,11 @@
           </div>
         </article>
 
-        <article class="works-item js-code">
+        <article class="works-item js-media">
           <h3 class="works-title">SNS運用</h3>
           <img src="images/works/ナッツショップ.png" alt="">
           <div class="textbox">
-            <p class="works-info">ニッチな観光地を題材にSNSを運用。トレンドやバズりやすい傾向を研究し,1年で累計5000フォロワーを達成しました。</p>
+            <p class="works-info">ニッチな観光地を題材にSNSを運用。リサーチや撮影から取材を一人で行っています。トレンドやバズりやすい傾向を研究し,1年で累計5000フォロワーを達成しました。単一ポストで最大581万インプレッション、6万以上のいいねを獲得。</p>
             <h4 class="tech">使用技術,機材</h4>
             <ul class="tech-list">
               <li>MYSQL</li>
@@ -153,7 +175,7 @@
           </div>
         </article>
 
-        <article class="works-item js-code">
+        <article class="works-item js-media js-code">
           <h3 class="works-title">個人ブログ</h3>
           <img src="images/works/ナッツショップ.png" alt="">
           <div class="textbox">
@@ -169,7 +191,7 @@
           </div>
         </article>
 
-        <article class="works-item js-code">
+        <article class="works-item js-media">
           <h3 class="works-title">イベント撮影依頼</h3>
           <img src="images/works/ナッツショップ.png" alt="">
           <div class="textbox">
@@ -186,12 +208,30 @@
               <li><a href="https://moodle.work/~kamisaka/shop/chapter7/product.php">WEBサイト</a></li>
           </div>
         </article>
+
+        <article class="works-item js-media">
+          <h3 class="works-title">企業のサイト新調にともなう動画素材の撮影</h3>
+          <img src="images/works/ナッツショップ.png" alt="">
+          <div class="textbox">
+            <p class="works-info">【制作中】</p>
+            <h4 class="tech">使用技術,機材</h4>
+            <ul class="tech-list">
+              <li>MYSQL</li>
+              <li>SONYα7c2</li>
+              <li>技術1</li>
+            </ul>
+            <ul class="links">
+              <li><a href="https://moodle.work/~kamisaka/shop/chapter7/product.php">X(旧Twitter)</a></li>
+              <li><a href="https://moodle.work/~kamisaka/shop/chapter7/product.php">インスタグラム</a></li>
+          </div>
+        </article>
         
 
         
   
         
       </div>
+      <!-- ------------------ -->
     </div>
   </section>
   <!----------------
@@ -203,6 +243,20 @@
 aaa
 
 
+
+<!-- この中に入る -->
+
+
+
+
+
+<!-- モーダル  情報が入るよ～ -->
+<dialog id="js-modal">
+    <div class="modal-inner">
+      <button id="js-modal-close" type="button">×</button>
+      <div id="js-modal-content"><!-- この中に入る --></div>
+    </div>
+  </dialog>
 
 </body>
 </html>
