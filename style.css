@@ -56,6 +56,11 @@ section {
 h2 {
   font-size: 40px;
 }
+
+/* モーダル表示中 背景スクロールを禁止 */
+body.no-scroll {
+  overflow: hidden;
+}
 /*==================
         ヒーロー
 ====================*/
@@ -72,7 +77,12 @@ h2 {
 
 /* 構造 */
 .works {text-align: center;}
-
+.works img {
+  width: 100%;
+  aspect-ratio: 39 / 19;
+  object-fit: cover;
+  border-bottom: #e2e8f0;
+}
 .works h2 {
   display: inline-block;
   border-bottom: 1px solid;
@@ -82,19 +92,19 @@ h2 {
 
 .works p {
   text-align: center;
-  padding-top: 30px;
+  padding-top: 15px;
   padding-bottom: 30px;
 }
-.works .works-grid {
-  flex: 1;
+.works-item .tech-list {
+  margin-top: auto;
 }
-
 .works article .tech-list ul{
   display: flex;
-  justify-content: center; /* 🛠 中身を横方向の中央にまとめて配置する */
-  flex-wrap: wrap;         /* 画面幅が狭いときに自動で折り返す */
-  gap: 12px;               /* 🛠 要素同士の間の隙間を「等間隔」にする */
-  margin-top: 10px;        /* 上の見出しとの隙間 */
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 .works article .tech-list ul li{
   background-color: #f1f5f9; /* ごく薄いグレーの背景色 */
@@ -142,6 +152,12 @@ article {
   grid-template-columns: repeat(3, 1fr); 
   gap: 5px;
 }
+
+.works-item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 /* 一覧で詳細を隠そう */
 .works-item .modal-box {
   display: none;
@@ -163,13 +179,37 @@ article:hover {
 .works-item h3 {
   margin: 15px 0 15px 10px;
 }
-.works-item .textbox {
-  margin: 5px 5px 5px 5px;
+article h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  text-align: center;
+
+  /* 擬似要素を使って左右に線を配置する設定 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* 文字と線の間の隙間 */
 }
 
-/*==================
-スキル
-====================*/
+/* 左右の線の共通デザイン */
+article h4::before,
+article h4::after {
+  content: "";
+  height: 1px;
+  width: 40px; /* 線の長さ（お好みで調整してください） */
+  background-color: #cbd5e1; /* 線の色（薄いグレー） */
+}
+.works-item .textbox {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 10px;
+  height: 100%;
+}
+
 /*==================
 ポップアップ
 ====================*/
@@ -207,10 +247,9 @@ dialog #js-modal-close {
 /* ポップアップ本体 */
 dialog {
   border: none;
-  border-radius: 12px;
   padding: 0;
   /* 左右を大きく開けるために、最大幅を狭めに設定 */
-  width: 80%;
+  width: 70%;
   overflow: visible; /*コレないと✗きえる はみ出ても表示するためのやつ*/
 
   /* 画面中央に配置 */
@@ -237,15 +276,24 @@ dialog::backdrop {
   padding-left: 5px;   /*気持ち悪いから反対も隙間開けよう*/
 }
 
+/* ミニタイトルデザ */
+#js-modal-content h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  border-left: 4px solid #333;
+  padding-left: 8px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
 
-
-/* 下部 リンクボタン */
+/* 上部 リンクボタン */
 .links {
   display: flex;
   gap: 15px;               /* ボタンとボタンの間の隙間 */
   justify-content: center; /* ボタンを中央寄せにする設定 */
   margin-top: 20px;        /* 上のコンテンツとの余白 */
-
+  
 }
 
 .links a {
@@ -268,3 +316,106 @@ dialog::backdrop {
   width: 100%;
   margin-bottom: 20px;            /* 詳細文との間の余白 */
 }
+
+#js-modal-content .tech-list {
+  margin-top: 10px;
+}
+#js-modal-content .tech-list ul {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+  
+}
+/* デザイン */
+#js-modal-content .tech-list ul li{
+  background-color: #f1f5f9; /* ごく薄いグレーの背景色 */
+  padding: 4px 12px;         /* 上下4px、左右12pxの内側余白 */
+  border-radius: 4px;         /* 角の軽い丸み */
+  font-size: 12px;           /* 文字の大きさ */
+  color: #475569;            /* 文字の色（少し薄い黒） */
+}
+
+.tech-list,.modal-info,.modal-header h3 {
+  padding-left: 20px;
+}
+
+/*==================
+       スキル
+====================*/
+.skills {
+  text-align: center;
+}
+.skills .skills-item {
+  text-align: left;
+}
+.skills h2 {
+  display: inline-block;
+  border-bottom: 1px solid;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+
+
+
+.skills {
+  margin-top: 60px;    /* 上のセクションとの間隔 */
+  margin-bottom: 60px; /* 下の要素との間隔 */
+}
+
+/* タイトルの装飾（制作実績のh2に合わせる、必要に応じて調整） */
+.skills h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* 4つのカードを並べる枠（グリッドレイアウト） */
+.skills-container {
+  display: grid;
+  /* 画面幅に合わせて最小280pxの幅で並べる。はみ出るなら自動で折り返す */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px; /* カードとカードの間の隙間 */
+  max-width: 1200px; /* 全体の最大幅（worksのコンテナと揃えるのがおすすめ） */
+  margin: 0 auto;    /* 中央寄せ */
+}
+
+/* 各スキルカードの箱 */
+.skills-item {
+  background-color: #f9f9f9; /* ほんのり明るい背景色 */
+  border: 1px solid #eee;    /* 目立ちすぎない薄い枠線 */
+  border-radius: 8px;        /* 角を少し丸める */
+  padding: 24px;             /* 箱の内側の余白 */
+}
+
+/* マウスを乗せたときに少しだけカードを浮かせる（任意） */
+.skills-item:hover {
+  background-color: #fff;
+  border-color: #ccc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* カード内のタイトル（見出し3） */
+.skills-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  border-left: 4px solid #333; /* 左側に太い縦線を入れるアクセント */
+  padding-left: 10px;          /* 縦線と文字の間の隙間 */
+  margin-bottom: 16px;         /* タイトルと箇条書きの間の隙間 */
+}
+
+/* 箇条書きリスト全体 */
+.skills-item ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* リスト項目ごとの上下の間隔 */
+}
+
+/* リストの各項目 */
+.skills-item li {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6; /* 行間を広げて読みやすく */
+}
+
+

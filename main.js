@@ -67,7 +67,7 @@ worksItems.forEach((item) => {
       const imgHtml = item.querySelector('img').outerHTML;
       const linksHtml = item.querySelector('.links').outerHTML;
       const infoHtml = item.querySelector('.modal-info').innerHTML;
-      const techlist = item.querySelector('.tech-list').innerHTML;
+      const techlist = item.querySelector('.tech-list').outerHTML;
 
       // タイトルとリンクボタンを包むヘッダー枠を組み立て
       const headerHtml = `<div class="modal-header">${titleHtml}${linksHtml}</div>`;
@@ -76,6 +76,7 @@ worksItems.forEach((item) => {
       modalContent.innerHTML = headerHtml + imgHtml + `<div class="modal-info">${infoHtml}</div>` + techlist;
       
       // ポップアップを表示
+      document.body.classList.add('no-scroll'); // スクロールきんしにする
       modal.showModal();
     }
   });
@@ -88,11 +89,13 @@ worksItems.forEach((item) => {
 
 // 閉じるボタンが押されたらポップアップを閉じる
 modalClose.addEventListener('click', () => {
+  document.body.classList.remove('no-scroll'); // スクロールOK
   modal.close();
 });
 // 背景（ダイアログの外側）が押されたら閉じる
 modal.addEventListener('click', (event) => {
   if (event.target === modal) {
+    document.body.classList.remove('no-scroll'); // こっちにもいるやん
     modal.close();
   }
 });
