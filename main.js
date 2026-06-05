@@ -77,6 +77,12 @@ worksItems.forEach((item) => {
       
       // ポップアップを表示
       document.body.classList.add('no-scroll'); // スクロールきんしにする
+      // リンクポップアップ化
+      const modalLinks = modalContent.querySelectorAll('a');
+      modalLinks.forEach((link) => {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      });
       modal.showModal();
     }
   });
