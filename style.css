@@ -81,7 +81,7 @@ body.no-scroll {
   width: 100%;
   aspect-ratio: 39 / 19;
   object-fit: cover;
-  border-bottom: #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
 }
 .works h2 {
   display: inline-block;
@@ -106,12 +106,13 @@ body.no-scroll {
   margin-top: 10px;
   margin-bottom: 20px;
 }
+/* でざいん */
 .works article .tech-list ul li{
-  background-color: #f1f5f9; /* ごく薄いグレーの背景色 */
-  padding: 4px 12px;         /* 上下4px、左右12pxの内側余白 */
-  border-radius: 4px;         /* 角の軽い丸み */
-  font-size: 12px;           /* 文字の大きさ */
-  color: #475569;            /* 文字の色（少し薄い黒） */
+  background-color: #f1f5f9;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #475569;
 }
 /*--------------
      ナビ
@@ -168,7 +169,6 @@ article:hover {
   background-color: #efefef;
   /* 上に3px移動させる */
   transform: translateY(-3px);
-  /* 浮いた分、影を強く・広くする */
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   transition: 0.2s;
 }
@@ -249,7 +249,7 @@ dialog #js-modal-close {
 dialog {
   border: none;
   padding: 0;
-  /* 左右を大きく開けるために、最大幅を狭めに設定 */
+
   width: 70%;
   overflow: visible; /*コレないと✗きえる はみ出ても表示するためのやつ*/
 
@@ -258,9 +258,7 @@ dialog {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* ポップアップが開いたときの背後の背景（暗幕） */
 dialog::backdrop {
-  /* 背景をより暗く（75%の黒透明） */
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -271,10 +269,10 @@ dialog::backdrop {
 
 
 #js-modal-content {
-  max-height: 90vh;    /* 画面の高さの70%を最大値とする */
-  overflow-y: auto;    /* 縦方向にはみ出た場合のみスクロールバーを出す */
-  padding-right: 5px;  /* スクロールバーと文字が被らないための微調整 */
-  padding-left: 5px;   /*気持ち悪いから反対も隙間開けよう*/
+  max-height: 90vh;
+  overflow-y: auto;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 /* ミニタイトルデザ */
@@ -291,31 +289,31 @@ dialog::backdrop {
 /* 上部 リンクボタン */
 .links {
   display: flex;
-  gap: 15px;               /* ボタンとボタンの間の隙間 */
-  justify-content: center; /* ボタンを中央寄せにする設定 */
-  margin-top: 20px;        /* 上のコンテンツとの余白 */
+  gap: 15px; 
+  justify-content: center;
+  margin-top: 20px;
   
 }
 
 .links a {
   display: block;
-  padding: 10px 24px;       /* 上下・左右の内側の余白 */
-  background-color: #333;   /* ボタンの背景色（環境に合わせて変更してください） */
-  color: #fff;              /* 文字の色 */
-  border-radius: 6px;       /* ボタンの角の丸み */
-  font-size: 14px;          /* 文字の大きさ */
-  text-align: center;       /* 文字を中央に配置 */
-  min-width: 120px;         /* ボタンの最小の横幅 */
+  padding: 10px 24px;
+  background-color: #333; 
+  color: #fff;         
+  border-radius: 6px;      
+  font-size: 14px;
+  text-align: center;
+  min-width: 120px;
 }
 
 .links a:hover {
-  background-color: #555;   /* ホバー時に少し明るいグレーに変化 */
+  background-color: #555;
 }
 
 /* 画像のサイズと下の余白 */
 #js-modal-content img {
   width: 100%;
-  margin-bottom: 20px;            /* 詳細文との間の余白 */
+  margin-bottom: 20px;
 }
 
 #js-modal-content .tech-list {
@@ -329,11 +327,11 @@ dialog::backdrop {
 }
 /* デザイン */
 #js-modal-content .tech-list ul li{
-  background-color: #f1f5f9; /* ごく薄いグレーの背景色 */
-  padding: 4px 12px;         /* 上下4px、左右12pxの内側余白 */
-  border-radius: 4px;         /* 角の軽い丸み */
-  font-size: 12px;           /* 文字の大きさ */
-  color: #475569;            /* 文字の色（少し薄い黒） */
+  background-color: #f1f5f9;
+  padding: 4px 12px; 
+  border-radius: 4px;
+  font-size: 12px; 
+  color: #475569;
 }
 
 .tech-list,.modal-info,.modal-header h3 {
@@ -360,32 +358,30 @@ dialog::backdrop {
 
 
 .skills {
-  margin-top: 60px;    /* 上のセクションとの間隔 */
-  margin-bottom: 60px; /* 下の要素との間隔 */
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
-/* タイトルの装飾（制作実績のh2に合わせる、必要に応じて調整） */
+/* タイトルの装飾 */
 .skills h2 {
   text-align: center;
   margin-bottom: 40px;
 }
 
-/* 4つのカードを並べる枠（グリッドレイアウト） */
 .skills-container {
   display: grid;
-  /* 画面幅に合わせて最小280pxの幅で並べる。はみ出るなら自動で折り返す */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px; /* カードとカードの間の隙間 */
-  max-width: 1200px; /* 全体の最大幅（worksのコンテナと揃えるのがおすすめ） */
-  margin: 0 auto;    /* 中央寄せ */
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* 各スキルカードの箱 */
 .skills-item {
-  background-color: #f9f9f9; /* ほんのり明るい背景色 */
-  border: 1px solid #eee;    /* 目立ちすぎない薄い枠線 */
-  border-radius: 8px;        /* 角を少し丸める */
-  padding: 24px;             /* 箱の内側の余白 */
+  background-color: #f9f9f9; 
+  border: 1px solid #eee;   
+  border-radius: 8px;      
+  padding: 24px;         
 }
 
 /* マウスを乗せたときに少しだけカードを浮かせる（任意） */
@@ -395,28 +391,24 @@ dialog::backdrop {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* カード内のタイトル（見出し3） */
+/* カード内のタイトル */
 .skills-item h3 {
   font-size: 18px;
   font-weight: bold;
   color: #333;
-  border-left: 4px solid #333; /* 左側に太い縦線を入れるアクセント */
-  padding-left: 10px;          /* 縦線と文字の間の隙間 */
-  margin-bottom: 16px;         /* タイトルと箇条書きの間の隙間 */
+  border-left: 4px solid #333;
+  padding-left: 10px;
+  margin-bottom: 16px;
 }
 
-/* 箇条書きリスト全体 */
 .skills-item ul {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* リスト項目ごとの上下の間隔 */
+  gap: 10px;
 }
 
-/* リストの各項目 */
 .skills-item li {
   font-size: 14px;
   color: #555;
-  line-height: 1.6; /* 行間を広げて読みやすく */
+  line-height: 1.6; 
 }
-
-
