@@ -2,9 +2,9 @@
         全体
 ====================*/
 /* 全部ゆっくり変化でいいやろ */
-* {
+/* * {
   transition: 1s;
-}
+} だめでした*/
 /* ボックスの計算 */
 *,
 *::before,
@@ -65,7 +65,7 @@ body.no-scroll {
         ヒーロー
 ====================*/
 .hero h1 {
-  font-size: 70px;
+  font-size: clamp(10px, 12vw, 70px); /*わぉ便利*/
   text-align: center;
   margin-top: 40px;
   margin-bottom: 70px;
@@ -149,9 +149,10 @@ article {
 }
 .works-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 10px;
 }
+
 
 .works-item {
   display: flex;
